@@ -1,1 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-blue
+  namespace: prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: app
+        version: blue
+    spec:
+      containers:
+      - name: app
+        image: repo/student-app:blue
 
